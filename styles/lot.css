@@ -1,0 +1,26 @@
+.section__lot {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.container__lot {
+    max-width: 70%;
+    height: 130vh;
+    margin: 0 auto;
+    padding: 50px 30px;
+    color: #33383C;
+    background: linear-gradient(to bottom, #F5F5F5 60%, transparent 95%);
+}
+
+.container__lot label {
+    font-size: 20px;
+}
+
+.container__lot input, textarea, button {
+    border: 1px solid black;
+}
+
+.container__lot .lot__headers {
+    text-align: center;
+    margin: 40px 0;
+}
