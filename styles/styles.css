@@ -204,22 +204,153 @@ legend {
 
   .hero-container2 {
     display: flex; /* Используем flexbox для расположения элементов в ряд */
-    align-items: center; /* Центрируем содержимое по вертикали */
+     /* Центрируем содержимое по вертикали */
     justify-content: center; /* Центрируем содержимое по горизонтали */
     height: 100vh; /* Высота контейнера равна высоте видимой области экрана */
     font-family: Arial, sans-serif; /* Устанавливаем шрифт */
+    
+
+
   }
 
   .text-section-hero {
+    display: flex;
+    justify-content: center; /* Горизонтальное центрирование контента */
+    align-items: center; /* Вертикальное центрирование контента */
+    background-color: rgb(34, 34, 34);
+    height: 100%;
     flex: 1; /* Занимает половину доступного пространства */
     padding: 50px; /* Отступы вокруг текста */
     font-size: 18px; /* Размер шрифта */
     line-height: 1.6; /* Межстрочный интервал */
-    color: #333; /* Цвет текста */
+    color: white; /* Цвет текста */
   }
+ p {
+    word-wrap: break-word; /* Хорошо для переноса текста */
+    overflow-wrap: break-word; /* Дополнительное уточнение для переноса */
+}
 
   .image-section-hero2 {
-    flex: 2; /* Занимает половину доступного пространства */
+    flex: 1.15; /* Занимает половину доступного пространства */
+    height: 100%;
     background: url(../assets/335638.jpg) no-repeat center center; /* Устанавливаем фоновое изображение */
     background-size: cover; /* Фоновое изображение покрывает весь блок */
+    filter: brightness(80%);
   }
+
+  /*icons*/
+
+  .main-content {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+  }
+
+  .brand-promise-title {
+    font-size: 40px; /* Размер шрифта для заголовка */
+    text-align: center;
+    font-weight: bold; /* Жирное начертание */
+    margin-bottom: 30px; /* Отступ после заголовка */
+    text-transform: uppercase; /* Все буквы заглавные */
+  }
+  
+  .container-icons {
+    display: flex;
+    justify-content: space-around; /* Оптимизировано для равномерного распределения */
+    flex-wrap: wrap;
+  }
+  
+  .column-icons {
+    width: 25%; /* Уточнено для равной ширины */
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between center; /* Для равномерного распределения внутри колонки */
+  }
+  
+  .item-icons {
+    margin-bottom: 40px; /* Меньше отступ для более плотной компоновки */
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    color: #666;
+    margin-right: 10px;
+    font-size: 34px; /* Размер иконок увеличен */
+  }
+  
+  .item-text {
+    font-size: px; /* Немного меньше, для лучшей читаемости в компактном пространстве */
+  }
+  
+  .container-img {
+    display: flex; /* Используем flexbox для горизонтального расположения */
+    width: 100%; /* Ширина контейнера */
+    height: 100vh; /* Полная высота видимой части экрана */
+    align-items: center; /* Вертикальное выравнивание содержимого */
+    justify-content: center; /* Горизонтальное выравнивание содержимого */
+    font-family: Arial, sans-serif; /* Шрифт */
+  }
+  
+  .text-section-img {
+    width: 25%; /* Ширина текстовой секции */
+    padding: 20px; /* Внутренние отступы */
+    font-size: 20px; /* Размер шрифта */
+    color: white; /* Цвет текста */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    text-align: center; /* Выравнивание текста по центру */
+  }
+
+  .images-section-1 {
+    display: flex; /* Используем flexbox для размещения изображений в ряд */
+    width: 75%; /* Ширина секции изображений */
+  }
+
+  .image1 {
+    width: 33.33%; /* Ширина каждого изображения */
+    height: 100vh; /* Высота каждого изображения */
+    background-size: cover; /* Масштабирование изображения для заполнения блока */
+    background-position: center; /* Центрирование изображения */
+  }
+
+  .background1 {
+    position: relative;
+    height: 100vh; /* Высота на весь экран */
+    background-image: url(/backend-project/assets/GettyImages-50947488-e1511307648580.jpg); /* Укажите путь к вашему фоновому изображению */
+    background-size: cover; /* Покрытие всего доступного пространства */
+    background-position: center; /* Центрирование изображения */
+  }
+
+  .darken1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон для затемнения */
+  }
+
+  .content123 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрирование текста */
+    width: 80%; /* Ширина блока с текстом */
+    color: white; /* Цвет текста */
+    /* Выравнивание текста по центру */
+    font-family: Arial, sans-serif; /* Шрифт текста */
+    z-index: 2; /* Текст будет поверх затемняющего слоя */
+  }
+
+  .p1 {
+    font-size: 1.2em; /* Размер шрифта */
+    margin-bottom: 20px; /* Отступ снизу */
+  }
+
+
+  
