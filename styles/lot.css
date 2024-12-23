@@ -5,7 +5,7 @@
 
 .container__lot {
     max-width: 70%;
-    height: 130vh;
+    height: 170vh;
     margin: 0 auto;
     padding: 50px 30px;
     color: #33383C;
@@ -16,11 +16,33 @@
     font-size: 20px;
 }
 
-.container__lot input, textarea, button {
+.container__lot input, textarea {
     border: 1px solid black;
+    border-radius: 3px;
 }
 
 .container__lot .lot__headers {
     text-align: center;
     margin: 40px 0;
+}
+
+.container__lot div {
+    margin-bottom: 30px;
+}
+
+.container__lot-confirm {
+    font-weight: bold;
+}
+
+.container__lot button {
+    margin-top: 40px;
+    border: #33383C 2px solid;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.container__lot .lot__price-text {
+    color: rgb(100, 100, 100);
 }

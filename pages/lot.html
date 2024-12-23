@@ -41,29 +41,35 @@
                     <h2>Please provide detailed information about your product</h2>
                 </div>
                 <form action="/submit" method="post" enctype="multipart/form-data">
-
                     <div>
                         <label for="product-category">Category of product</label>
-                        <input type="text" name="product-category">
+                        <br>
+                        <input placeholder="Jewellery" type="text" name="product-category">
                     </div>
                     <div>
                         <label for="product-title">Product title</label>
-                        <input type="text" name="product-title">
+                        <br>
+                        <input placeholder="Computer" type="text" name="product-title">
                     </div>
                     <div>
                         <label for="product-info">Product Description</label>
+                        <br>
                         <textarea name="product-info"></textarea>
                     </div>
                     <div>
-                        <label for="">Initial Price</label>
-                        <input type="text">
+                        <label for="product-price">Initial Price</label>
+                        <br>
+                        <input placeholder="10$" type="text" name="product-price">
+                        <p class="lot__price-text">10% of price would be retained by commission!</p>
                     </div>
                     <div>
-                        <label for="">Upload Photo</label>
-                        <input type="text">
+                        <label for="product-photo">Upload Photo</label>
+                        <br>
+                        <input type="file" name="product-photo">
                     </div>
                     <div>
-                        <label for="">Bill option</label>
+                        <label for="bill">Bill option</label>
+                        <br>
                         <select name="bill">
                             <option value="kaspi">Kaspi</option>
                             <option value="halyk">Halyk</option>
@@ -71,13 +77,16 @@
                         </select>
                     </div>
                     <div>
-                        <label for="">Additional Information</label>
-                        <textarea name="additional-info" id=""></textarea>
+                        <label for="additional-info">Additional Information</label>
+                        <br>
+                        <textarea placeholder="history of item" name="additional-info"></textarea>
                     </div>
-                    <label>You must confirm that you agree with our policy and rules </label>
+                    <label class="container__lot-confirm">You must confirm that you agree with our policy and rules</label>
+                    <br>
                     <label>
                         <input type="radio" name="confirm" value="yes">Yes, I have read
                     </label>
+                    <br>
                     <label>
                         <input type="radio" name="confirm" value="no">No, I haven’t read
                     </label>
