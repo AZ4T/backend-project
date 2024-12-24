@@ -354,14 +354,15 @@ legend {
 
 
 
-=======
-  @import url('https://fonts.googleapis.com/css?family=Poppins');
+
+ @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 /* BASIC */
 
 .html1 {
-  background: url(../assets/335638.jpg) no-repeat center center;
-  background-size: cover;
+  background: url(../assets/Online-Reverse-Auction-Software-photoaidcom-darken.jpg) no-repeat center center;
+  background-size: auto;
+  height: 100vh;
 
 }
 
@@ -624,3 +625,84 @@ input[type=text]:placeholder {
 * {
   box-sizing: border-box;
 }
+
+
+
+
+.footer-page {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #000;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 100px;
+  background-color: #000;
+  font-size: 14px;
+  border-top: 1px solid #333;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section h5 {
+  margin-bottom: 20px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  line-height: 2;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-links {
+  display: flex;
+  gap: 50px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icon {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.social-icon a {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  font-size: 12px;
+  border-top: 1px solid #333;
+  background-color: black;
+}
+
