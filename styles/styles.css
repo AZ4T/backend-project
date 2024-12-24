@@ -247,20 +247,23 @@ legend {
     background: #f5f5f5;
     color: #333;
     min-height: 100vh;
+    text-align: center;
   }
 
   .brand-promise-title {
+    text-align: center !important;
     font-size: 40px; /* Размер шрифта для заголовка */
-    text-align: center;
     font-weight: bold; /* Жирное начертание */
     margin-bottom: 30px; /* Отступ после заголовка */
     text-transform: uppercase; /* Все буквы заглавные */
+    color: #666;
   }
   
   .container-icons {
     display: flex;
     justify-content: space-around; /* Оптимизировано для равномерного распределения */
     flex-wrap: wrap;
+    text-align:left ;
   }
   
   .column-icons {
@@ -706,3 +709,8 @@ input[type=text]:placeholder {
   background-color: black;
 }
 
+.ourmission-h1{
+  font-size: 60px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
