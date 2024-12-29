@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" class="html1">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/account.css">
+    <link rel="stylesheet" href="../styles/footer.css">
 </head>
-<body class="body1">
+<body>
     <header class="header">
         <div class="container header__container">
             <div>
                 <img class="logo-image" src="../assets/logo2.png" alt="">
                 <h1 class="logo">
-                    <a href="../index.html">Lotify</a>
+                    <a href="../account.html">Lotify</a>
                 </h1>
             </div>
             <nav class="header__nav">
@@ -26,67 +27,89 @@
             </nav>
         </div>
     </header>
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-          <!-- Tabs Titles -->
-          <h2 class="active"> Sign In </h2>
-          <h2 class="inactive underlineHover">Sign Up </h2>
-      
-          <!-- Icon -->
-          <div class="fadeIn first">
-            <img src="../assets/logo2.png" id="icon" alt="User Icon" />
-          </div>
-      
-          <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
-          </form>
-      
-          <!-- Remind Passowrd -->
-          <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
-          </div>
-      
-        </div>
-      </div>
-      <body class="footer-page">
-        <div class="footer">
-          <div class="footer-section">
-            <h5>Our Company</h5>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Insights</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Representatives</a></li>
-              <li><a href="#">Sell with Us</a></li>
-              <li><a href="#">Finance</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h5>Support</h5>
-            <ul>
-              <li><a href="#">Create Account</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h5>Connect</h5>
-            <div class="social-icons">
-              <div class="social-icon"><a href="#">F</a></div>
-              <div class="social-icon"><a href="#">X</a></div>
-              <div class="social-icon"><a href="#">I</a></div>
-              <div class="social-icon"><a href="#">J</a></div>
-              <div class="social-icon"><a href="#">D</a></div>
+
+    <!-- MAIN SECTION - SIGN IN, SIGN UP -->
+
+    <main>
+        <section class="account__section">
+            <div class="account">
+                <div class="sign-up">
+                    <h2>Sign Up</h2>
+                    <h3>It's free and only takes a minute</h3>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <label for="nickname">Nickname</label>
+                        <input type="text" name="nickname">
+            
+                        <label for="email">Email</label>
+                        <input type="text" name="email">
+            
+                        <label for="password">Password</label>
+                        <input type="password" name="password">
+            
+                        <label for="">Confirm your Password</label>
+                        <input type="password" name="password-confirm">
+                        <br>
+                        <button value="submit">Sign Up</button>
+                    </form>
+                    <p>By clicking the Sign Up button, you agree to our <a href="about.html">Terms and Conditions</a></p>
+                    <p>Already have an account? <a href="#" id="show-sign-in">Login here</a></p>
+                </div>
+                <div class="sign-in">
+                    <h2>Sign In</h2>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <label for="email">Email</label>
+                        <input type="text" name="email">
+            
+                        <label for="password">Password</label>
+                        <input type="password" name="password">
+
+                        <button value="submit">Login</button>
+                    </form>
+                    <p>Don't have an account? <a href="#" id="show-sign-up">Create account here</a></p>
+                </div>
             </div>
-          </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        <div class="footer-section">
+        <h5>Our Company</h5>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Insights</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Representatives</a></li>
+            <li><a href="#">Sell with Us</a></li>
+            <li><a href="#">Finance</a></li>
+        </ul>
         </div>
-        <div class="footer-bottom">
-          Terms & Conditions | Privacy Policy <br>
-          Copyright © 2024 Lotify, Inc. All Rights Reserved.
+        <div class="footer-section">
+        <h5>Support</h5>
+        <ul>
+            <li><a href="#">Create Account</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
         </div>
-  </body>
+        <div class="footer-section">
+        <h5>Connect</h5>
+        <div class="social-icons">
+            <div class="social-icon"><a href="#">F</a></div>
+            <div class="social-icon"><a href="#">X</a></div>
+            <div class="social-icon"><a href="#">I</a></div>
+            <div class="social-icon"><a href="#">J</a></div>
+            <div class="social-icon"><a href="#">D</a></div>
+        </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        Terms & Conditions | Privacy Policy <br>
+        Copyright © 2024 Lotify, Inc. All Rights Reserved.
+    </div>
+
+
+    <script src="/js/script.js"></script>
 </body>
 </html>

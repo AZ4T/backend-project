@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path'); // Required for working with file paths
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -10,17 +10,12 @@ app.use('/assets', express.static(path.join(__dirname, '..', 'assets')));
 
 // Route to serve the home page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'pages', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'pages', 'account.html'));
 });
 
 
 app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'pages', 'about.html'));
-});
-
-
-app.get('/account', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'pages', 'account.html'));
 });
 
 

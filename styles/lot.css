@@ -16,14 +16,33 @@
     font-size: 20px;
 }
 
-.container__lot input, textarea {
+.container__lot textarea, input:not([type="radio"]):not([type="file"]) {
+    margin-top: 10px;
+    width: 300px;
+    padding: 10px;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 5px;
+}
+
+.container__lot select {
+    margin-top: 10px;
 }
 
 .container__lot .lot__headers {
     text-align: center;
     margin: 40px 0;
+}
+
+.container__lot .lot__headers > h1{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 40px;
+    padding: 10px 0;
+}
+
+.container__lot .lot__headers > h2{
+    font-size: 25px;
+    font-weight: 300;
 }
 
 .container__lot div {
