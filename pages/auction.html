@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auction</title>
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/auction.css">
 </head>
 <body>
     <header class="header">
         <div class="container header__container">
             <div>
-                <img class="logo-image" src="../assets/logo2.png" alt="">
+                <img class="logo-image" src="/assets/logo2.png" alt="">
                 <h1 class="logo">
-                    <a href="../account.html">Lotify</a>
+                    <a href="./account.html">Lotify</a>
                 </h1>
             </div>
             <nav class="header__nav">
@@ -26,5 +27,80 @@
             </nav>
         </div>
     </header>
+
+    <main>
+        <section class="auction__section">
+            <div class="auction__container">
+                <h1>Auction (and today's date)</h1>
+                <div class="auction__main">
+                    <div class="lot__info">
+                        <ul>
+                            <li>Category:</li>
+                            <li>Title:</li>
+                            <li>Start Price:</li>
+                            <li>Description:</li>
+                            <li>Additional Information:</li>
+                        </ul>
+                    </div>
+                    <div class="lot__image">
+                        <img src="/assets/335638.jpg" alt="lot_image">
+                    </div>
+                    <div class="lot__chat">
+                        
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="wallet">Your money: 200</div>
+                    <div class="controls">
+                        <button class="button button-red">–</button>
+                        <div class="controls__bet">
+                            <label for="bet">Enter your Bet</label>
+                            <input type="number" name="bet">
+                        </div>
+                        <button class="button button-green">+</button>
+                    </div>
+                    <div class="submit__bet">
+                        <button>SUBMIT BET</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="footer">
+        <div class="footer-section">
+        <h5>Our Company</h5>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Insights</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Representatives</a></li>
+            <li><a href="#">Sell with Us</a></li>
+            <li><a href="#">Finance</a></li>
+        </ul>
+        </div>
+        <div class="footer-section">
+        <h5>Support</h5>
+        <ul>
+            <li><a href="#">Create Account</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        </div>
+        <div class="footer-section">
+        <h5>Connect</h5>
+        <div class="social-icons">
+            <div class="social-icon"><a href="#">F</a></div>
+            <div class="social-icon"><a href="#">X</a></div>
+            <div class="social-icon"><a href="#">I</a></div>
+            <div class="social-icon"><a href="#">J</a></div>
+            <div class="social-icon"><a href="#">D</a></div>
+        </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        Terms & Conditions | Privacy Policy <br>
+        Copyright © 2024 Lotify, Inc. All Rights Reserved.
+    </div>
 </body>
 </html>
