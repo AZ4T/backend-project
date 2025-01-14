@@ -1,13 +1,15 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const path = require('path');
+require('dotenv').config();
 
 const app = express();
-const port = 3000;
-
+const PORT = 3000;
 
 app.use('/styles', express.static(path.join(__dirname, '..', 'styles')));
 app.use('/js', express.static(path.join(__dirname, '..', 'js')))
 app.use('/assets', express.static(path.join(__dirname, '..', 'assets')));
+app.use(express.json());
 
 
 app.get('/', (req, res) => {
@@ -30,8 +32,10 @@ app.use((req, res) => {
     res.status(404).send('Page Not Found');
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-

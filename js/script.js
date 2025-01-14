@@ -16,3 +16,6 @@ showSignUpLink.addEventListener('click', (event) => {
     signUpSection.style.display = 'block';
     signInSection.style.display = 'none';
 });
+
+// ----------------------------------------
+
