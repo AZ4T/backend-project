@@ -1,0 +1,57 @@
+.sign-in {
+    display: none;
+}
+
+.account__section {
+    background-image: url("/assets/Online-Reverse-Auction-Software-photoaidcom-darken.jpg");
+    padding: 30px 0;
+    min-height: 100vh;   
+}
+
+.account {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.account h2 {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.account h3 {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.account form {
+    text-align: left;
+}
+
+.account label {
+    display: flex;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.account input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+.account button {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 5px 10px;
+}
+
+.account p + p {
+    margin-top: 10px;
+}

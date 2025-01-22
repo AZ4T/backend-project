@@ -1,0 +1,475 @@
+.hero {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(50%); /* Уменьшаем яркость до 50% */
+  }
+  .hero-container {
+    position: relative;
+    display: block;
+    text-align: center;
+    color: white; /* Цвет текста */
+  }
+
+  .hero-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачная затемняющая плашка */
+  }
+
+  .hero-text {
+    position: absolute;
+    font-family: "Roboto", sans-serif;
+    top: 50%; /* Центрирование по вертикали */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translate(-50%, -50%); /* Точное центрирование */
+    z-index: 2; /* Убедитесь, что текст находится поверх затемняющей плашки */
+  }
+  .hero-text h1 {
+    font-size: 5em; /* Увеличиваем размер шрифта для заголовка */
+    font-family: "Roboto", sans-serif;
+    font-weight: bold; /* Делаем шрифт жирным */
+    margin: 0; /* Убираем стандартные отступы */
+    padding: 0; /* Убираем стандартные отступы */
+  }
+
+  .hero-container2 {
+    display: flex; /* Используем flexbox для расположения элементов в ряд */
+     /* Центрируем содержимое по вертикали */
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    height: 100vh; /* Высота контейнера равна высоте видимой области экрана */
+    font-family: Arial, sans-serif; /* Устанавливаем шрифт */
+    
+
+
+  }
+
+  .text-section-hero {
+    display: flex;
+    justify-content: center; /* Горизонтальное центрирование контента */
+    align-items: center; /* Вертикальное центрирование контента */
+    background-color: rgb(34, 34, 34);
+    height: 100%;
+    flex: 1; /* Занимает половину доступного пространства */
+    padding: 50px; /* Отступы вокруг текста */
+    font-size: 18px; /* Размер шрифта */
+    line-height: 1.6; /* Межстрочный интервал */
+    color: white; /* Цвет текста */
+  }
+ p {
+    word-wrap: break-word; /* Хорошо для переноса текста */
+    overflow-wrap: break-word; /* Дополнительное уточнение для переноса */
+}
+
+  .image-section-hero2 {
+    flex: 1.15; /* Занимает половину доступного пространства */
+    height: 100%;
+    background: url(../assets/335638.jpg) no-repeat center center; /* Устанавливаем фоновое изображение */
+    background-size: cover; /* Фоновое изображение покрывает весь блок */
+    filter: brightness(80%);
+  }
+
+  /*icons*/
+
+  .main-content {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+    text-align: center;
+  }
+
+  .brand-promise-title {
+    text-align: center !important;
+    font-size: 40px; /* Размер шрифта для заголовка */
+    font-weight: bold; /* Жирное начертание */
+    margin-bottom: 30px; /* Отступ после заголовка */
+    text-transform: uppercase; /* Все буквы заглавные */
+    color: #666;
+  }
+  
+  .container-icons {
+    display: flex;
+    justify-content: space-around; /* Оптимизировано для равномерного распределения */
+    flex-wrap: wrap;
+    text-align:left ;
+  }
+  
+  .column-icons {
+    width: 25%; /* Уточнено для равной ширины */
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between center; /* Для равномерного распределения внутри колонки */
+  }
+  
+  .item-icons {
+    margin-bottom: 40px; /* Меньше отступ для более плотной компоновки */
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    color: #666;
+    margin-right: 10px;
+    font-size: 34px; /* Размер иконок увеличен */
+  }
+  
+  .item-text {
+    font-size: px; /* Немного меньше, для лучшей читаемости в компактном пространстве */
+  }
+  
+  .container-img {
+    display: flex; /* Используем flexbox для горизонтального расположения */
+    width: 100%; /* Ширина контейнера */
+    height: 100vh; /* Полная высота видимой части экрана */
+    align-items: center; /* Вертикальное выравнивание содержимого */
+    justify-content: center; /* Горизонтальное выравнивание содержимого */
+    font-family: Arial, sans-serif; /* Шрифт */
+  }
+  
+  .text-section-img {
+    width: 25%; /* Ширина текстовой секции */
+    padding: 20px; /* Внутренние отступы */
+    font-size: 20px; /* Размер шрифта */
+    color: white; /* Цвет текста */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    text-align: center; /* Выравнивание текста по центру */
+  }
+
+  .images-section-1 {
+    display: flex; /* Используем flexbox для размещения изображений в ряд */
+    width: 75%; /* Ширина секции изображений */
+  }
+
+  .image1 {
+    width: 33.33%; /* Ширина каждого изображения */
+    height: 100vh; /* Высота каждого изображения */
+    background-size: cover; /* Масштабирование изображения для заполнения блока */
+    background-position: center; /* Центрирование изображения */
+  }
+
+  .background1 {
+    position: relative;
+    height: 100vh; /* Высота на весь экран */
+    
+    background-size: cover; /* Покрытие всего доступного пространства */
+    background-position: center; /* Центрирование изображения */
+  }
+
+  .darken1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон для затемнения */
+  }
+
+  .content123 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрирование текста */
+    width: 80%; /* Ширина блока с текстом */
+    color: white; /* Цвет текста */
+    /* Выравнивание текста по центру */
+    font-family: Arial, sans-serif; /* Шрифт текста */
+    z-index: 2; /* Текст будет поверх затемняющего слоя */
+  }
+
+  .p1 {
+    font-size: 1.2em; /* Размер шрифта */
+    margin-bottom: 20px; /* Отступ снизу */
+  }
+
+
+
+
+ @import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/* BASIC */
+
+.html1 {
+  background: url(../assets/Online-Reverse-Auction-Software-photoaidcom-darken.jpg) no-repeat center center;
+  background-size: auto;
+  height: 100vh;
+
+}
+
+.body1 {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+a {
+  color: #e63434;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px; 
+  color: #cccccc;
+}
+
+
+
+/* STRUCTURE */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+#formFooter {
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+/* TABS */
+
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #e63434;
+}
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button], input[type=submit], input[type=reset]  {
+  background-color: #e63434;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #742120;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+input[type=text] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #e63434;
+}
+
+input[type=text]:placeholder {
+  color: #cccccc;
+}
+
+
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #e63434;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+} 
+
+#icon {
+  width:20%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+

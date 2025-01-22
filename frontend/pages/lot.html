@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lot details</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/lot.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div>
+                <img class="logo-image" src="../assets/logo2.png" alt="">
+                <h1 class="logo">
+                    <a href="/about">Lotify</a>
+                </h1>
+            </div>
+            <nav class="header__nav">
+                <ul>
+                    <li><a href="/auction">Auction</a></li>
+                    <li><a href="/lot">Create lot</a></li>
+                    <li><a href="/about">About us</a></li>
+                    <li><a href="#" onclick="logout()">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section__lot">
+            <div class="container__lot">
+                <div class="lot__headers">
+                    <h1>Lot creation</h1>
+                    <h2>Please provide detailed information about your product</h2>
+                </div>
+                <form>
+                    <div>
+                        <label for="product-category">Category of product</label>
+                        <br>
+                        <input placeholder="Jewellery" type="text" name="product-category" id="product-category">
+                    </div>
+                    <div>
+                        <label for="product-title">Product title</label>
+                        <br>
+                        <input placeholder="Computer" type="text" name="product-title" id="product-title">
+                    </div>
+                    <div>
+                        <label for="product-info">Product Description</label>
+                        <br>
+                        <textarea placeholder="size, specs" name="product-info" id="product-info"></textarea>
+                    </div>
+                    <div>
+                        <label for="product-price">Initial Price</label>
+                        <br>
+                        <input placeholder="10$" type="text" name="product-price" id="product-price">
+                        <p class="lot__price-text">10% of price would be retained by commission!</p>
+                    </div>
+                    <div>
+                        <label for="product-photo">Upload Photo</label>
+                        <br>
+                        <input type="file" name="product-photo" id="product-photo">
+                    </div>
+                    <div>
+                        <label for="bill">Bill option</label>
+                        <br>
+                        <select name="bill" id="bill">
+                            <option value="kaspi">Kaspi</option>
+                            <option value="halyk">Halyk</option>
+                            <option value="crypto">Crypto</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="additional-info">Additional Information</label>
+                        <br>
+                        <textarea placeholder="history of item" name="additional-info" id="information"></textarea>
+                    </div>
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div class="footer">
+        <div class="footer-section">
+            <h5>Our Company</h5>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Insights</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Representatives</a></li>
+                <li><a href="#">Sell with Us</a></li>
+                <li><a href="#">Finance</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h5>Support</h5>
+            <ul>
+                <li><a href="#">Create Account</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h5>Connect</h5>
+            <div class="social-icons">
+                <div class="social-icon"><a href="#">F</a></div>
+                <div class="social-icon"><a href="#">X</a></div>
+                <div class="social-icon"><a href="#">I</a></div>
+                <div class="social-icon"><a href="#">J</a></div>
+                <div class="social-icon"><a href="#">D</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        Terms & Conditions | Privacy Policy <br>
+        Copyright © 2024 Lotify, Inc. All Rights Reserved.
+    </div>
+
+    <script src="../scripts/lot.js"></script>
+    <script src="../scripts/account.js"></script>
+</body>
+</body>
+</html>
