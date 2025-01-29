@@ -28,7 +28,8 @@ table {
 }
 
 table th, td {
-    min-width: 250px;
+    padding: 0px 5px;
+    min-width: 50px;
     text-align: left;
     border: 1px solid black;
 }
@@ -51,7 +52,7 @@ table th, td {
     color: white;
 }
 
-.edit-modal {
+.edit-modal-user, .edit-modal-lot {
     position: fixed;
     top: 0;
     left: 0;
@@ -109,4 +110,9 @@ table th, td {
 .button-group button[type="button"] {
     background-color: #777;
     color: white;
+}
+
+.auction-text {
+    font-size: 20px;
+    font-weight: 500;
 }

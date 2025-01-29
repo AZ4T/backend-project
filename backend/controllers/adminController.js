@@ -1,10 +1,11 @@
 const User = require('../models/User');
+const Lot = require('../models/Lot');
 
 exports.getAllUsers = async (req, res) => {
     try {
         const users = await User.find()
             .select('-password')
-        res.json({ success: true, users });
+        res.status(200).json({ success: true, users });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
@@ -53,6 +54,71 @@ exports.updateUser = async (req, res) => {
         res.json({ success: true, message: 'User updated successfully' });
     }
     catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+}
+
+exports.getLots = async (req, res) => {
+    try {
+        const lots = await Lot.find();
+        res.json({ success: true, lots });
+    }
+    catch (error) {
+        console.error(error, "Error during getting Lots");
+        res.status(500).json({ success: false, message: error.message });
+    }
+}
+
+exports.deleteLot = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const lot = await Lot.findById(id);
+        if (!lot) {
+            return res.status(404).json({ success: false, message: 'Lot not found' });
+        }
+
+        await Lot.findByIdAndDelete(id);
+        res.json({ success: true, message: 'Lot deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting lot:', error);
+        res.status(500).json({ success: false, message: 'Server error', error: error.message });
+    }
+}
+
+exports.updateLot = async (req, res) => {
+    try {
+        const { category, title, description, price, photo, billOption, information } = req.body;
+        const lotId = req.params.id;
+
+        const lot = await Lot.findById(lotId);
+        if (!lot) {
+            return res.status(404).json({ success: false, message: 'Lot not found' });
+        }
+
+        if (category) lot.category = category;
+        if (title) lot.title = title;
+        if (description) lot.description = description;
+        if (price) lot.price = price;
+        if (photo) lot.photo = photo;
+        if (billOption) lot.billOption = billOption;
+        if (information) lot.information = information;
+
+        await lot.save();
+        res.json({ success: true, message: 'Lot updated successfully' });
+    }
+    catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+}
+
+exports.auction = async (req, res) => {
+    try {
+        const lots = await Lot.find();
+        res.json({ success: true, lots });
+    }
+    catch (error) {
+        console.error(error, "Error during getting auction lots");
         res.status(500).json({ success: false, message: error.message });
     }
 }

@@ -55,3 +55,19 @@
 .account p + p {
     margin-top: 10px;
 }
+
+.modal {
+    color: #333;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+#otpCode {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 200px;
+    margin: 1rem auto;
+}

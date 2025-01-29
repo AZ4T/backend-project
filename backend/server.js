@@ -1,40 +1,51 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const jwt = require('jsonwebtoken');
+const { auth } = require('./middleware/auth');
+const dbCheck = require('./middleware/dbCheck');
+
 const userRoutes = require('./routes/userRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const lotRoutes = require('./routes/lotRoutes');
+
+const cookieParser = require("cookie-parser");
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT;
 
+app.use(cookieParser());
 app.use(express.json());
 
 //static files
 app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, '../backend')));
 
 //routes
+app.use(dbCheck);
+app.use('/api/middleware/auth', auth);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/lot', lotRoutes);
 
 
-// app.use('/admin', (req, res, next) => {
-//     const token = req.headers.authorization?.split(' ')[1];
-//     if (!token) return res.status(401).send('You are not allowed to access this resource');
+app.get('/admin', auth, (req, res, next) => {
+    const token = req.cookies.token;
 
-//     try {
-//         const decoded = jwt.verify(token, 'SECRET_KEY');
-//         if (decoded.role !== 'admin') {
-//             return res.status(403).send('Forbidden');
-//         }
-//         // user is admin, proceed
-//         next();
-//     } catch (error) {
-//         res.status(401).send('Invalid token');
-//     }
-// });
+    if (!token) {
+        return res.status(401).send('You are not allowed to access this resource');
+    }
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        if (decoded.role !== 'Admin') {
+            return res.status(404).sendFile(path.join(__dirname, '../frontend/pages/404.html'));
+        }
+        next();
+    } catch (error) {
+        res.status(401).send('Invalid token', error.name, error.message);
+    }
+});
 
 //page catching
 app.use('/:page', (req, res, next) => {

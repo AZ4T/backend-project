@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Management</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/profile.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div>
+                <img class="logo-image" src="../assets/logo2.png" alt="">
+                <h1 class="logo">
+                    <a href="/">Lotify</a>
+                </h1>
+            </div>
+            <nav class="header__nav">
+                <ul>
+                    <li><a href="/auction">Auction</a></li>
+                    <li><a href="/lot">Create lot</a></li>
+                    <li><a href="/about">About us</a></li>
+                    <li><a href="/profile">Account</a></li>
+                    <li><a href="#" onclick="logout()">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="profile-container">
+        <h2>Manage Your Profile</h2>
+        <div class="profile">
+            <div class="profile-information">
+                <p id="profile_username">Username:</p>
+                <p id="profile_email">Email:</p>
+                <p id="profile_balance">Current wallet:</p>
+                <button id="deposit-btn">Deposit money</button>
+            </div>
+        </div>
+        <form id="profileForm" class="profile-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">New Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword">
+            </div>
+
+            <button type="submit" class="save-btn" id="save-btn">Save Changes</button>
+        </form>
+
+        <hr>
+    </main>
+    <div class="popup-overlay" id="depositPopup">
+        <div class="popup">
+            <h3>Deposit Money</h3>
+            <div class="form-group">
+                <label for="paymentMethod">Select Payment Method:</label>
+                <select id="paymentMethod">
+                    <option value="Crypto">Crypto</option>
+                    <option value="Halyk">Halyk</option>
+                    <option value="Kaspi">Kaspi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="depositAmount">Enter Amount:</label>
+                <input type="number" id="depositAmount" placeholder="Enter amount" min="1">
+            </div>
+            <div class="button-group">
+                <button class="submit-btn">Submit</button>
+                <button class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-section">
+            <h5>Our Company</h5>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Insights</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Representatives</a></li>
+                <li><a href="#">Sell with Us</a></li>
+                <li><a href="#">Finance</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h5>Support</h5>
+            <ul>
+                <li><a href="#">Create Account</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h5>Connect</h5>
+            <div class="social-icons">
+                <div class="social-icon"><a href="#">F</a></div>
+                <div class="social-icon"><a href="#">X</a></div>
+                <div class="social-icon"><a href="#">I</a></div>
+                <div class="social-icon"><a href="#">J</a></div>
+                <div class="social-icon"><a href="#">D</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        Terms & Conditions | Privacy Policy <br>
+        Copyright &copy; 2024 Lotify, Inc. All Rights Reserved.
+    </div>
+
+    <script src="../scripts/profile.js"></script>
+    <script src="../scripts/account.js"></script>
+</body>
+</html>

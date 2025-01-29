@@ -21,6 +21,7 @@
                     <li><a href="/auction">Auction</a></li>
                     <li><a href="/lot">Create lot</a></li>
                     <li><a href="/about">About us</a></li>
+                    <li><a href="/profile">Account</a></li>
                     <li><a href="#" onclick="logout()">Log out</a></li>
                 </ul>
             </nav>
@@ -48,13 +49,41 @@
             </div>
             <div class="lot">
                 <button onclick="getLots()">List Lots</button>
-                <button onclick="deleteLot()">Delete Lots</button>
-                <button onclick="updateLot()">Update Lots</button>
+                <table id="lotsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Photo</th>
+                            <th>bill Option</th>
+                            <th>Additional information</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lotsTableBody">
+                        <!-- Rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
             </div>
             <div class="auction">
-                <button onclick="getUser()">List Auctions</button>
-                <button onclick="deleteAuction()">Delete Auction</button>
-                <button onclick="updateLots()">Update Auction</button>
+                <h2 class="auction-text">Auction information</h2>
+                <table id="auctionTable">
+                    <thead>
+                        <tr>
+                            <th>Lots (id)</th>
+                            <th>Lots (title)</th>
+                            <th>Start Price</th>
+                            <th>Start Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="auctionTableBody">
+                        <!-- Rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
