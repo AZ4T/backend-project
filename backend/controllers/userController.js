@@ -6,7 +6,8 @@ const QRCode = require('qrcode');
 
 exports.signUp = async (req, res) => {
     try {
-        const {userName, email, password, role, enable2FA} = req.body;
+        console.log('Received signup request:', req.body);
+        const {userName, email, password, role, twoFactorEnabled} = req.body;
 
         const existingUser = await User.findOne({ 
             $or: [
@@ -32,13 +33,10 @@ exports.signUp = async (req, res) => {
             email,
             password: hashedPassword,
             role,
-            enable2FA
+            twoFactorEnabled
         });
-        
-        const userResponse = newUser.toObject();
-        delete userResponse.password;
 
-        if (enable2FA) {
+        if (twoFactorEnabled) {
             const secret = speakeasy.generateSecret({
                 name: `Auction:${email}`
             });
@@ -48,11 +46,11 @@ exports.signUp = async (req, res) => {
             
             await newUser.save();
             
-            res.json({ 
+            res.json({
                 requiresOTP: true,
                 qrCode: qrCodeUrl,
                 tempSecret: secret.base32,
-                user: userResponse
+                user: newUser
             });
         } else {
             await newUser.save();
@@ -60,7 +58,7 @@ exports.signUp = async (req, res) => {
             res.status(201).json({
                 success: true,
                 message: 'User added successfully',
-                user: userResponse
+                user: newUser
             });
         }
         
@@ -109,7 +107,7 @@ exports.signIn = async (req, res) => {
         if (user.twoFactorEnabled) {
             return res.json({ 
                 requiresOTP: true,
-                userId: user.id,
+                userId: user._id,
                 message: '2FA verification required'
             });
         }
@@ -267,8 +265,7 @@ exports.updateInfo = async (req, res) => {
 };
 
 exports.verify2FA = async (req, res) => {
-    const token = req.cookies.token;
-    const { userId } = req.body;
+    const { userId, token } = req.body;
     
     try {
         const user = await User.findById(userId);
@@ -284,46 +281,76 @@ exports.verify2FA = async (req, res) => {
             secret: user.tempSecret,
             encoding: 'base32',
             token: token,
-            window: 2 // Allow for 2 time steps in case of slight time mismatch
+            window: 2
         });
 
         if (verified) {
+            // Save the secret and mark 2FA as enabled
             user.twoFactorSecret = user.tempSecret;
             user.twoFactorEnabled = true;
             user.tempSecret = undefined;
             await user.save();
 
+            // Generate JWT token
             const payload = { 
                 userId: user._id, 
                 userName: user.userName,
                 role: user.role,
             }
 
-            jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
-                if (err) throw err;
-                res.cookie("token", token, {
-                    httpOnly: false,     // Helps prevent XSS - browser can't read the cookie via JavaScript
-                    secure: false,       // Ensures the browser only sends the cookie over HTTPS
-                    maxAge: 3600000,    // optional - cookie expiration in ms (e.g., 1 hour)
-                });
+            const jwtToken = jwt.sign(
+                payload,
+                process.env.JWT_SECRET,
+                { 
+                    expiresIn: '24h',
+                    algorithm: 'HS256'
+                }
+            );
+
+            // Set the cookie and send response
+            res.cookie("token", jwtToken, {
+                httpOnly: false,
+                secure: false,
+                maxAge: 3600000,
+            });
+
+            return res.status(200).json({ 
+                success: true,
+                message: '2FA verification successful'
             });
         } else {
-            res.status(400).json({ message: 'Invalid verification code' });
+            return res.status(400).json({ 
+                success: false,
+                message: 'Invalid verification code' 
+            });
         }
     } catch (err) {
         console.error('Server error:', err.message);
-        res.status(500).json({ message: 'Server error', error: err.message });
+        return res.status(500).json({ 
+            success: false,
+            message: 'Server error', 
+            error: err.message 
+        });
     }
 };
 
 exports.verify2FALogin = async (req, res) => {
-    const token = req.cookies.token;
-    const { userId } = req.body;
+    const { userId, token } = req.body;
     
     try {
         const user = await User.findById(userId);
         if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.status(404).json({ 
+                success: false,
+                message: 'User not found' 
+            });
+        }
+
+        if (!user.twoFactorSecret) {
+            return res.status(400).json({ 
+                success: false,
+                message: 'Two-factor authentication is not set up for this user' 
+            });
         }
 
         const verified = speakeasy.totp.verify({
@@ -339,14 +366,31 @@ exports.verify2FALogin = async (req, res) => {
                 userName: user.userName,
                 role: user.role,
             }
-            jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
-                if (err) throw err;
-                res.cookie("token", token, {
-                    httpOnly: false,     // Helps prevent XSS - browser can't read the cookie via JavaScript
-                    secure: false,       // Ensures the browser only sends the cookie over HTTPS
-                    maxAge: 3600000,    // optional - cookie expiration in ms (e.g., 1 hour)
-                });
+
+            const jwtToken = jwt.sign(
+                payload,
+                process.env.JWT_SECRET,
+                { 
+                    expiresIn: '24h',
+                    algorithm: 'HS256'
+                }
+            );
+
+            user.currentSession = jwtToken;
+            await user.save();
+
+            res.cookie("token", jwtToken, {
+                httpOnly: false,
+                secure: false,
+                maxAge: 3600000,
             });
+
+            return res.status(200).json({ 
+                success: true,
+                message: 'Login successful',
+                token: jwtToken
+            });
+            
         } else {
             res.status(400).json({ message: 'Invalid verification code' });
         }

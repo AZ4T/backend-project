@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const { auth } = require('./middleware/auth');
 const dbCheck = require('./middleware/dbCheck');
@@ -28,6 +29,11 @@ app.use('/api/middleware/auth', auth);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/lot', lotRoutes);
+
+app.use(cors({
+    origin: 'http://localhost:3000', // Укажите адрес фронтенда
+    credentials: true
+}));
 
 
 app.get('/admin', auth, (req, res, next) => {

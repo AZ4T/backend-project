@@ -57,32 +57,37 @@ async function signUp(event) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const role = (email === "bolatbekov718@gmail.com") ? 'Admin' : 'User';
-    const enable2FA = document.getElementById('enable2FA').checked;
-
+    const twoFactorEnabled = document.getElementById('enable2FA').checked;
+    console.log(userName, email, password, role, twoFactorEnabled);
     try {
         const response = await fetch('/api/users/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({userName, email, password, role, enable2FA}),
+            body: JSON.stringify({userName, email, password, role, twoFactorEnabled}),
         });
 
-        console.log('Response status:', response.status); // Debug log
+        const data = await response.json(); // Получить данные здесь
+        console.log('Response data:', data);
 
-        const data = await response.json();
-
-
-        if(!response.ok) {
-            throw new Error("fetch failed");
-        } else {
-            if (data.requiresOTP) {
-                showOTPSetupModal(data.qrCode, data.user.id);
-            }
+        if (!response.ok) {
+            throw new Error(data.message || "Error during registration");
         }
 
-        alert('User created successfully!');
-        window.location.href = '/account';
+        if (data.requiresOTP && data.qrCode && data.user._id) {
+            // Make sure the modal is properly initialized
+            if (typeof bootstrap !== 'undefined') {
+                showOTPSetupModal(data.qrCode, data.user._id);
+            } else {
+                console.error('Bootstrap is not loaded');
+                alert('Error: Required libraries not loaded');
+            }
+        } else {
+            alert('User created successfully!');
+            window.location.href = '/account';
+        }
+
     }
     catch (error) {
         alert('Error creating user: ' + error.message);
@@ -121,15 +126,14 @@ async function signIn(event){
         if (!response.ok) {
             throw new Error(result.message || `HTTP error! status: ${response.status}`);
         } else {
-            if (data.requiresOTP) {
+            if (result.requiresOTP) {
                 // Show 2FA verification modal for login
-                showLoginOTPModal(data.userId);
+                showLoginOTPModal(result.userId);
+            } else {
+                alert('Login successful!');
+                window.location.href = '/about';
             } 
         }
-
-        alert('Login successful!');
-
-        window.location.href = '/about';
     }
     catch (error) {
         alert('Login failed: ' + error.message);
@@ -162,6 +166,7 @@ async function logout() {
 }
 
 function showOTPSetupModal(qrCode, userId) {
+
     // Remove any existing modal
     const existingModal = document.getElementById('otpSetupModal');
     if (existingModal) {
@@ -209,26 +214,28 @@ function showOTPSetupModal(qrCode, userId) {
             alert('Please enter a valid 6-digit code');
             return;
         }
-
+    
         try {
-            const response = await fetch('/api/auth/verify2fa', {
+            const response = await fetch('/api/users/verify2fa', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                credentials: 'include',
                 body: JSON.stringify({ userId, token })
             });
-
+    
             const data = await response.json();
-            if (response.ok) {
+            
+            if (response.ok && data.success) {
+                alert('2FA setup successful!');
                 modal.hide();
-                window.location.href = '/about';
             } else {
-                alert(data.message || 'Invalid code');
+                alert(data.message || 'Verification failed. Please try again.');
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('An unexpected error occurred.');
+            alert('An unexpected error occurred. Please try again.');
         }
     });
 }
@@ -275,6 +282,7 @@ function showLoginOTPModal(userId) {
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                credentials: "include",
                 body: JSON.stringify({ userId, token })
             });
 
@@ -283,7 +291,7 @@ function showLoginOTPModal(userId) {
                 modal.hide();
                 window.location.href = '/about'
             } else {
-                console.log(data.message);
+                alert(data.message || 'Verification failed. Please try again.');
             }
         } catch (error) {
             console.error('Error:', error);
